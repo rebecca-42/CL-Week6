@@ -30,11 +30,11 @@ let colors = {
     ]
 }
 
-app.use('/', express.static('public'));
+// app.use('/', express.static('public'));
 
-// app.get('/', (request, response)=> {
-//    response.send("Hello, welcome to the home page.");
-// })
+ app.get('/', (request, response)=> {
+    response.send("What is your favorite color?");
+ })
 
 app.get('/about', (request, response) => {
     response.send("This is an about page");
