@@ -1,15 +1,31 @@
 let express = require('express');
 let app = express();
 
-let signs = {
+let colors = {
     "data" : [
         {
-            name: "Blue",
-            info: "A color."
+            name: "Red",
+            info: "cardinal, scarlet, crimson"
         },
         {
-            name: "Red",
-            info: "Another color."
+            name: "Orange",
+            info: "ochre, copper, terracotta"
+        },
+        {
+            name: "Yellow",
+            info: "lemon, amber, gold"
+        },
+        {
+            name: "Green",
+            info: "olive, emerald, lime"
+        },
+        {
+            name: "Blue",
+            info: "azure, sapphire, cobalt"
+        },
+        {
+            name: "Purple",
+            info: "violet, lavender, indigo"
         }
     ]
 }
@@ -24,17 +40,17 @@ app.get('/about', (request, response) => {
     response.send("This is an about page");
 })
 
-app.get('/signs', (request, response) => {
-    response.json(signs);
+app.get('/colors', (request, response) => {
+    response.json(colors);
 })
 
-app.get('/signs/:sign', (request, response)=> {
-    console.log(request.params.sign);
-    let user_sign = request.params.sign;
+app.get('/colors/:color', (request, response)=> {
+    console.log(request.params.color);
+    let user_color = request.params.color;
     let user_object;
-    for(let i=0;i<signs.data.length;i++) {
-        if(user_sign == signs.data[i].name) {
-            user_object = signs.data[i];
+    for(let i=0;i<colors.data.length;i++) {
+        if(user_color == colors.data[i].name) {
+            user_object = colors.data[i];
         }
     }
     console.log(user_object);
